@@ -9,10 +9,15 @@
 // let titleN = document.getElementById('title-name')
 // titleN.style.color = 'green'
 // titleN.style.fontWeight = 'bold'
-let itemList = document.getElementsByClassName('list-group-item')
-console.log(itemList[2].textContent='Hello')
-itemList[2].style.backgroundColor = 'green'
-for(let i=0; i<itemList.length; i++)
+// let itemList = document.getElementsByClassName('list-group-item')
+// console.log(itemList[2].textContent='Hello')
+// itemList[2].style.backgroundColor = 'green'
+// for(let i=0; i<itemList.length; i++)
+// {
+//     itemList[i].style.fontWeight = 'bold'
+// }
+let li = document.getElementsByTagName('li')
+for(let i=0; i<li.length; i++)
 {
-    itemList[i].style.fontWeight = 'bold'
+    li[i].style.fontWeight = 'bold'    
 }
