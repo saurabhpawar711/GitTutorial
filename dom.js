@@ -26,8 +26,32 @@
 // let thirdItem = document.querySelector('.list-group-item:nth-child(3)')
 // thirdItem.style.visibility='hidden'
 
-let odd = document.querySelectorAll('.li:nth-child(odd)')
-for(let i=0; i<odd.length; i++)
-{
-    odd[i].style.backgroundColor = 'green'    
-}
+// let odd = document.querySelectorAll('.li:nth-child(odd)')
+// for(let i=0; i<odd.length; i++)
+// {
+//     odd[i].style.backgroundColor = 'green'    
+// }
+
+let itemList = document.querySelector('#items')
+// console.log(itemList.parentElement)
+// itemList.parentElement.style.color='red'
+// itemList.lastElementChild.style.color='red'
+// console.log(itemList.lastChild)
+// itemList.firstElementChild.style.color='blue'
+// console.log(itemList.firstChild)
+// console.log(itemList.nextSibling)
+// console.log(itemList.nextElementSibling)
+// console.log(itemList.previousSibling)
+// itemList.previousElementSibling.style.color= 'red'
+let newElement = document.createElement('div')
+newElement.className = 'newE';
+newElement.id = 'newId';
+let text = document.createTextNode('Hello World')
+newElement.appendChild(text)
+// console.log(newElement)
+// let addTitle = document.querySelector('header .container')
+// let header = document.querySelector('header h1')
+// addTitle.insertBefore(newElement, header)
+let add = document.querySelector('ul')
+let header = document.querySelector('ul .list-group-item')
+add.insertBefore(newElement, header)
