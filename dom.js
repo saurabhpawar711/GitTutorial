@@ -61,33 +61,50 @@
 
 let form = document.getElementById('addForm')
 let itemList = document.getElementById('items')
+let filter = document.getElementById('filter')
 
-form.addEventListener('submit',addItem)
+form.addEventListener('submit', addItem)
 itemList.addEventListener('click', removeItem)
-function addItem(e)
-{
+filter.addEventListener('keyup', filterItem)
+function addItem(e) {
     e.preventDefault()
 
-    let newItem = document.getElementById('item').value 
+    let newItem = document.getElementById('item').value
+    let des = document.getElementById('it').value
     let text = document.createTextNode(newItem)
+    let desText = document.createTextNode(des)
     let list = document.createElement('li')
     list.className = 'list-group-item'
     list.appendChild(text)
+
+
+    list.appendChild(desText)
     itemList.appendChild(list)
 
     let delBtn = document.createElement('button')
     delBtn.className = "btn btn-danger btn-sm float-right delete"
     delBtn.appendChild(document.createTextNode('X'))
     list.appendChild(delBtn)
-    
+
 }
-function removeItem(e)
-{
-    if(e.target.classList.contains('delete'))
-    {
+function removeItem(e) {
+    if (e.target.classList.contains('delete')) {
         let removeList = e.target.parentElement
         itemList.removeChild(removeList)
     }
-
 }
 
+function filterItem(e) {
+    let Text = e.target.value.toLowerCase()
+    let items = itemList.getElementsByTagName('li')
+    Array.from(items).forEach(function (item) {
+        let itemName = item.firstChild.textContent
+        let desName = item.childNodes[1].textContent
+        if (itemName.toLowerCase().indexOf(Text) != -1 || desName.toLowerCase().indexOf(Text) != -1){
+            item.style.display = 'block'
+        }
+        else {
+            item.style.display = 'none'
+        }
+    })
+}
